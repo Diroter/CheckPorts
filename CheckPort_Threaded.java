@@ -4,7 +4,7 @@ import java.net.*;
 import java.text.SimpleDateFormat;
 
 
-public class CheckPort {
+public class CheckPort_Threaded {
 
     public static void checker(String hostname) throws Exception {
         Socket s = null;
@@ -23,17 +23,17 @@ public class CheckPort {
                 }
             }  
         }
-        WriteFile.FileWriting(hostname, out);
+        WriteFile_Threaded.FileWriting(hostname, out);
 
         
     }
 
     public static void main(String[] args) throws Exception {
-        ReadFile.FileReading("Hosts_check.txt");
+        ReadFile_Threaded.FileReading("Hosts_check.txt");
     }
 }
 
-class ReadFile{
+class ReadFile_Threaded{
 
     public static void FileReading(String filepath) throws Exception {
 
@@ -48,7 +48,7 @@ class ReadFile{
     }  
 } 
 
-class WriteFile{
+class WriteFile_Threaded{
 
     public static void FileWriting(String ip, String toWrite) throws Exception {
         String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
