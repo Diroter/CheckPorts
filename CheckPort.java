@@ -9,11 +9,13 @@ public class CheckPort {
     public static void checker(String hostname) throws Exception {
         Socket s = null;
         String out = "";
-        for(int i = 18; i <= 25; i -= -1){
+        for(int i = 20; i <= 85; i++){
             try{
                 s = new Socket(hostname, i);
                 out += "porta n."+i+" aperta";
+                System.out.println("aperta "+i);
             }catch(IOException e){
+
             } finally{
                 if(s != null){
                     try{
